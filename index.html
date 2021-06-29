@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Медвежатина Антарктическая</title>
+</head>
+<body >
+    <div id="first_page">
+        <p><h1>Как создать нейросеть для распознавания <b>антарктических медведей.</b></h1></p>
+        <p><h2>Готов?</h2></p>
+    </div>
+
+    <div>
+        <button id="button_yes">ГОТОВ</button>
+        <button id="button_not">НАФИГ НАДА</button>
+    </div>
+
+</body>
+<style>
+    body
+    {
+        background-color: burlywood;
+    }
+    #first_page
+    {
+        font:italic;
+        text-align: center;
+        border: 4px dashed black;
+        padding: 8px;
+        background-color: chocolate;
+    }
+
+    .button_yes
+    {
+        height:200px;
+        width:200px;
+    }
+
+    .button_not
+    {
+        height:200px;
+        width:200px;
+    }
+</style>
+
+<script>
+
+    document.getElementById("button_yes").onclick = 
+        (event) =>
+        {
+            window.location.href = "hrefs/btnyespg.html";
+        }
+
+    document.getElementById("button_not").onclick = 
+        (event) =>
+        {
+            window.location.href = "hrefs/btnnopg.html";
+        }
+
+    var myButton = document.getElementById('button_yes');
+    myButton.style.height = '200px';
+    myButton.style.width= '200px';
+
+    var myButton1 = document.getElementById('button_not');
+    myButton1.style.height = '200px';
+    myButton1.style.width= '200px';
+    
+</script>
+</html>

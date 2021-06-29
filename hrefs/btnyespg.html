@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="text">
+        <p><h1>1. Импортирование.</h1></p>
+    </div>
+    <div class="text">
+        <p><h3>Для того, чтобы хорошенько сэкономить своё время и не загружать в нейронную сеть тысячи фотографий, воспользуемся <i>Keras</i>.</h3></p>
+        <p><h3><b>Keras</b> — открытая нейросетевая библиотека, написанная на языке Python. Она представляет собой надстройку над AI фреймворками</h3></p>
+    </div>
+    <br>
+    <div class="code">
+        <p> from tensorflow import keras <br>
+            from tensorflow.keras import layers<br>
+            from tensorflow.keras import Sequential<br>
+            from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout, Activation, BatchNormalization, AveragePooling2D<br>
+            from tensorflow.keras.optimizers import SGD, RMSprop, Adam<br>
+            ## pip install tensorflow-datasets <br>
+            import tensorflow_datasets as tfds<br>
+            import tensorflow as tf<br>
+            import logging<br>
+            import numpy as np<br>
+            import time<br>
+        </p>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="text">
+        <p><h1>2. Загрузка данных с диска.</h1></p>
+    </div>
+    <br>
+    <div class="code">
+        # создаём парсер аргументов и передаём их<br>
+ap = argparse.ArgumentParser()<br>
+ap.add_argument("-d", "--dataset", required=True,<br>
+    help="path to input dataset of images")<br>
+ap.add_argument("-m", "--model", required=True,<br>
+    help="path to output trained model")<br>
+ap.add_argument("-l", "--label-bin", required=True,<br>
+    help="path to output label binarizer")<br>
+ap.add_argument("-p", "--plot", required=True,<br>
+    help="path to output accuracy/loss plot")<br>
+args = vars(ap.parse_args()) <br>
+    </div>
+    <br><br><br>
+    <img src="dat.png" alt="none">
+
+    <br><br><br>
+
+    <div class="text">
+        <p><h1>3. Определение модели нейросети.</h1></p>
+    </div>
+    <div class="text">
+        <p><h3>Теперь нужно создать нейросеть.</h3></p>
+        <p><h3><b>Мы выберем самую простую нейросеть из двух возможных.</h3></p>
+        <p><h3><b>Она называется <i>последовательной</i>.</h3></p>
+        <p><h3><b>Для активации скрытых слоёв нейронной сети используем "relu"</i>.</h3></p>
+        <p><h3><b>Всего входных картинок 30000, размер 7680×4320</i>.</h3></p>
+    </div>
+<br>
+    <div class="code">
+        def dog_cat_model(): <br>
+        model = Sequential()<br>
+        model.add(Conv2D(32, (3, 3), input_shape=(7680, 4320, 3), activation='relu'))<br>
+        model.add(MaxPooling2D(pool_size=(2, 2)))<br>
+        model.add(Conv2D(32, (3, 3),input_shape=(7680, 4320, 3), activation='relu'))<br>
+        model.add(MaxPooling2D(pool_size=(2, 2)))<br>
+        model.add(Flatten())<br>
+        model.add(Dense(units=128, activation='relu'))<br>
+        model.add(Dense(units=1, activation='sigmoid'))<br>
+        model.compile(optimizer=Adam(),<br>
+          loss='binary_crossentropy',<br>
+          metrics=['accuracy'])<br>
+        return model<br>
+    </div>
+</body>
+
+<style>
+    body
+    {
+        background-color: burlywood;
+    }
+    .code
+    {
+        background-color: cyan;
+        border: 4px dotted black;
+        padding: 8px;
+        font-family:fantasy;
+        float: left;
+    }
+    .text
+    {
+        border: 4px black;
+        border-style:double;
+        padding: 8px;
+        background-color: chocolate;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+</style>
+
+</html>

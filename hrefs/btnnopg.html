@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СВОЛАЧЬ</title>
+</head>
+<body id="you_cow">
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <div id="cow_div">
+        <h1>
+            <b id="dirty_pig">
+
+            </b>
+        </h1>
+    </div>
+</body>
+
+<style>
+    body
+    {
+        background-color: burlywood;
+    }
+    #cow_div
+    {
+        font:icon;
+        text-align: center;
+        border: 4px double black;
+        padding: 8px;
+        background-color: chocolate;
+        
+    }
+</style>
+
+<script id>
+    let arr = [
+    "АХ ТЫ Ж СКОТИНА!",
+    "АХ ТЫ Ж ЖУЛЬЁ!", 
+    "НУ И ФИГ С ТОБОЙ!", 
+    "НУ ОФИГЕЛ ИЛИ ДА?", 
+    "И ЗАЧЕМ? А? НЕ ВЕДИ СЕБЯ КАК ГУСЕНИЦА!"];
+    document.getElementById("dirty_pig").innerHTML = arr[Math.floor(Math.random() * 5)];
+</script>
+</html>
